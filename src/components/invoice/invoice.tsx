@@ -236,7 +236,6 @@ export const Invoice = ({
       <div className={style.date_payment_description_container}>
         <FormItem
           label="Invoice Date"
-          id="invoice_date"
           errorMessage={errors.createdAt?.message}
           className={style.invoice_date}
         >
@@ -257,7 +256,6 @@ export const Invoice = ({
 
         <FormItem
           label="Payment Terms"
-          id="payment_terms"
           errorMessage={errors.paymentTerms?.message}
           className={style.payment_terms}
         >

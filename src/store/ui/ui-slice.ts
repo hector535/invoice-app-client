@@ -7,7 +7,7 @@ interface UIState {
 }
 
 const initialState: UIState = {
-  theme: "theme-light",
+  theme: "theme-dark",
 };
 
 const uiSlice = createSlice({

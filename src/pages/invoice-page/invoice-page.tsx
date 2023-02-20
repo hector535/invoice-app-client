@@ -30,7 +30,7 @@ const InvoicePage = () => {
   }
 
   return (
-    <div className={style.new_invoice_page}>
+    <main className={style.new_invoice_page}>
       <div className={style.content}>
         <Button
           type="link"
@@ -48,7 +48,7 @@ const InvoicePage = () => {
           onCancel={() => navigate(-1)}
         />
       </div>
-    </div>
+    </main>
   );
 };
 

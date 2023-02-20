@@ -50,7 +50,7 @@ const InvoiceDetailsPage = () => {
 
   return (
     <>
-      <div className={style.invoice_page}>
+      <main className={style.invoice_page}>
         <Button
           type="link"
           icon={<ArrowLeftIcon />}
@@ -145,7 +145,7 @@ const InvoiceDetailsPage = () => {
             <TableSummary items={invoice.items} total={invoice.total} />
           ) : null}
         </div>
-      </div>
+      </main>
 
       <Modal open={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
         <h2 className={style.modal_title}>Confirm Deletion</h2>

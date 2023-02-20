@@ -48,13 +48,6 @@
   }
 }
 
-.button_text::before {
-  content: "New";
-  @include breakpoint($md) {
-    content: "New Invoice";
-  }
-}
-
 .actions_container {
   display: flex;
   gap: rem(18px);

@@ -21,8 +21,8 @@ export const Navbar = ({ className }: Props) => {
 
   useEffect(() => {
     const lastTheme = theme === "theme-light" ? "theme-dark" : "theme-light";
-    document.documentElement.classList.remove(lastTheme);
-    document.documentElement.classList.add(theme);
+    document.body.classList.remove(lastTheme);
+    document.body.classList.add(theme);
   }, [theme]);
 
   return (

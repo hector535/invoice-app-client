@@ -8,6 +8,7 @@ import { Filter } from "@/components/filter/filter";
 import { CreateInvoiceMessage } from "@/components/create-invoice-message/create-invoice-message";
 import { Modal } from "@/components/modal/modal";
 import { ReactComponent as PlusIcon } from "@/assets/icon-plus.svg";
+import { TABLET_WIDTH } from "@/const/app";
 
 import style from "./invoices-page.module.scss";
 
@@ -22,8 +23,10 @@ const InvoicesPage = () => {
     ? invoices.filter((inv) => selectedFilter.includes(inv.status))
     : invoices;
 
+  const viewportWidth = window.innerWidth;
+
   const handleNewInvoiceClick = () => {
-    if (window.innerWidth < 768) return navigate("/new");
+    if (viewportWidth < TABLET_WIDTH) return navigate("/new");
 
     setShowModal(true);
   };
@@ -42,11 +45,15 @@ const InvoicesPage = () => {
 
   return (
     <>
-      <div className={style.invoices_page}>
+      <main className={style.invoices_page}>
         <div className={style.invoices_header}>
           <div>
             <h1 className={style.title}>Invoices</h1>
-            <p className={style.info}>{invoices.length} total invoices</p>
+            <p className={style.info}>
+              {viewportWidth < TABLET_WIDTH
+                ? `${invoices.length} invoices`
+                : `There are ${invoices.length} total invoices`}
+            </p>
           </div>
 
           <div className={style.actions_container}>
@@ -69,7 +76,7 @@ const InvoicesPage = () => {
                 <span className={style.icon_container}>{<PlusIcon />}</span>
               }
             >
-              <span className={style.button_text}></span>
+              {viewportWidth < TABLET_WIDTH ? `New` : `New Invoice`}
             </Button>
           </div>
         </div>
@@ -90,7 +97,7 @@ const InvoicesPage = () => {
             <CreateInvoiceMessage />
           )}
         </div>
-      </div>
+      </main>
       <Modal
         openFrom="left"
         open={showModal}

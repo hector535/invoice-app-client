@@ -3,7 +3,7 @@ import { classnames } from "@/utility/classnames";
 import style from "./form-item.module.scss";
 
 type Props = {
-  id: string;
+  id?: string;
   label: string;
   errorMessage?: string;
   className?: string;

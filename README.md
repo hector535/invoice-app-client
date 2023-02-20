@@ -41,7 +41,7 @@ This is a solution to the [Invoice app](https://www.frontendmentor.io/challenges
 
 <h2 align="center">Links</h2>
 
-- Solution URL: [Invoice app (React + TypeScript + Redux Toolkit + React Hook Form + ZOD + React Router + Local Storage) | Frontend Mentor]()
+- Solution URL: [Invoice app (React + TypeScript + Redux Toolkit + React Hook Form + ZOD + React Router + Local Storage) | Frontend Mentor](https://www.frontendmentor.io/solutions/invoice-app-react-typescript-redux-toolkit-scss-iHo0UaB0P0)
 - Live Site URL: [https://invoice-app-4d8a75.netlify.app/](https://invoice-app-4d8a75.netlify.app/)
 
 <br>

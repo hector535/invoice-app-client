@@ -34,11 +34,16 @@ body {
   @include font-wsl($fw-medium, rem(12px), rem(15px));
 
   transition: color 0.3s, background 0.3s;
+}
 
-  @include themify-base($base-themes) {
-    background-color: themed("bodyBackgroundColor");
-    color: themed("bodyTextColor");
-  }
+body.theme-dark {
+  background-color: #141625;
+  color: #dfe3fa;
+}
+
+body.theme-light {
+  background-color: #f8f8fb;
+  color: #888eb0;
 }
 
 .visually-hidden:not(:focus):not(:active) {

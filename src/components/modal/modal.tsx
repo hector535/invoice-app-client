@@ -58,7 +58,17 @@ export const Modal = ({
 
   return createPortal(
     <>
-      <div className={modalClasses}>{children}</div>
+      <div
+        className={modalClasses}
+        role="dialog"
+        aria-label={
+          openFrom === "left"
+            ? "Form to create invoices"
+            : "Confirmation for deleting an invoice"
+        }
+      >
+        {children}
+      </div>
       <div className={backdropClasses} onClick={onClose}></div>
     </>,
     destinationRef.current
