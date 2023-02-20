@@ -10,13 +10,16 @@ import { ID } from "@/components/id/id";
 import { TableSummary } from "@/components/table-summary/table-summary";
 import { Modal } from "@/components/modal/modal";
 import { formatToDayShortMonthSYear } from "@/utility/dates";
+import { useViewportWidth } from "@/hooks/useViewportWidth";
 import { ReactComponent as ArrowLeftIcon } from "@/assets/icon-arrow-left.svg";
+import { TABLET_WIDTH } from "@/const/app";
 
 import style from "./invoice-details-page.module.scss";
 
 const InvoiceDetailsPage = () => {
   const { id } = useParams();
   const invoices = useAppSelector((state) => state.invoice.invoices);
+  const { viewportWidth } = useViewportWidth();
   const invoice = invoices.find((inv) => inv.id === id);
 
   if (!id || !invoice) return <Navigate to="/" />;
@@ -28,9 +31,8 @@ const InvoiceDetailsPage = () => {
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
 
   const handleEditButtonClick = () => {
-    const viewportWidth = window.innerWidth;
-
-    if (viewportWidth < 768) return navigate(`/${invoice.id}/edit`);
+    if (viewportWidth.current < TABLET_WIDTH)
+      return navigate(`/${invoice.id}/edit`);
 
     setShowInvoiceModal(true);
   };

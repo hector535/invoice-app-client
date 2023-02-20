@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Invoice } from "@/components/invoice/invoice";
 import { useAppSelector } from "@/hooks/hooks";
 import { useNavigateToTop } from "@/hooks/useNavigateToTop";
@@ -11,10 +11,12 @@ import { ReactComponent as PlusIcon } from "@/assets/icon-plus.svg";
 import { TABLET_WIDTH } from "@/const/app";
 
 import style from "./invoices-page.module.scss";
+import { useViewportWidth } from "@/hooks/useViewportWidth";
 
 const InvoicesPage = () => {
   const invoices = useAppSelector((state) => state.invoice.invoices);
   const navigate = useNavigateToTop();
+  const { viewportWidth } = useViewportWidth();
 
   const [showModal, setShowModal] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<string[]>([]);
@@ -23,10 +25,8 @@ const InvoicesPage = () => {
     ? invoices.filter((inv) => selectedFilter.includes(inv.status))
     : invoices;
 
-  const viewportWidth = window.innerWidth;
-
   const handleNewInvoiceClick = () => {
-    if (viewportWidth < TABLET_WIDTH) return navigate("/new");
+    if (viewportWidth.current < TABLET_WIDTH) return navigate("/new");
 
     setShowModal(true);
   };
@@ -50,7 +50,7 @@ const InvoicesPage = () => {
           <div>
             <h1 className={style.title}>Invoices</h1>
             <p className={style.info}>
-              {viewportWidth < TABLET_WIDTH
+              {viewportWidth.current < TABLET_WIDTH
                 ? `${invoices.length} invoices`
                 : `There are ${invoices.length} total invoices`}
             </p>
@@ -76,7 +76,7 @@ const InvoicesPage = () => {
                 <span className={style.icon_container}>{<PlusIcon />}</span>
               }
             >
-              {viewportWidth < TABLET_WIDTH ? `New` : `New Invoice`}
+              {viewportWidth.current < TABLET_WIDTH ? `New` : `New Invoice`}
             </Button>
           </div>
         </div>

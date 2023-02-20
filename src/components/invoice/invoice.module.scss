@@ -98,6 +98,10 @@
 
     justify-content: flex-end;
     gap: rem(8px);
+
+    @include themify($invoice-themes) {
+      background-color: unset;
+    }
   }
 }
 
