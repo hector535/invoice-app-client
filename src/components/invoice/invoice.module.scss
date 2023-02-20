@@ -82,9 +82,12 @@
 
   padding-inline: rem(24px);
 
-  background-color: #fff;
   width: 100%;
   height: rem(91px);
+
+  @include themify($invoice-themes) {
+    background-color: themed("backgroundColor");
+  }
 
   @include breakpoint($md) {
     position: unset;
