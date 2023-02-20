@@ -1,0 +1,194 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.head {
+  display: none;
+
+  transition: color 0.3s, background 0.3s;
+
+  @include themify($invoice-table-themes) {
+    color: themed("color");
+    background-color: themed("bodyBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
+    padding-top: rem(32px);
+    padding-inline: rem(32px);
+
+    font-size: rem(11px);
+    line-height: rem(18px);
+  }
+}
+
+.body,
+.foot {
+  padding: rem(24px);
+
+  @include breakpoint($md) {
+    padding: unset;
+  }
+}
+
+.body {
+  display: grid;
+  gap: rem(24px);
+
+  transition: background 0.3s;
+
+  @include themify($invoice-table-themes) {
+    background-color: themed("bodyBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    padding: rem(32px) rem(32px) rem(40px);
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(8px);
+
+  @include breakpoint($md) {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
+    gap: unset;
+  }
+}
+
+.name,
+.total {
+  font-weight: $fw-bold;
+
+  transition: color 0.3s;
+
+  @include themify($invoice-table-themes) {
+    color: themed("highlightColor");
+  }
+}
+
+.name {
+  grid-column: 1;
+  grid-row: 1;
+
+  @include breakpoint($md) {
+    grid-column: unset;
+    grid-row: unset;
+  }
+}
+
+.qty,
+.price {
+  transition: color 0.3s;
+
+  @include themify($invoice-table-themes) {
+    color: themed("color");
+  }
+
+  font-weight: $fw-bold;
+}
+
+.qty_header {
+  @include breakpoint($md) {
+    text-align: center;
+  }
+}
+
+.qty {
+  grid-column: 1;
+  grid-row: 2;
+
+  &::after {
+    content: "x";
+    margin-left: rem(4px);
+  }
+
+  @include breakpoint($md) {
+    grid-column: unset;
+    grid-row: unset;
+    text-align: center;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.price_header {
+  @include breakpoint($md) {
+    text-align: right;
+  }
+}
+
+.price {
+  grid-column: 1;
+  grid-row: 2;
+  margin-left: rem(26px);
+
+  @include breakpoint($md) {
+    grid-column: unset;
+    grid-row: unset;
+    margin-left: unset;
+    text-align: right;
+  }
+}
+
+.total_header {
+  @include breakpoint($md) {
+    text-align: right;
+  }
+}
+
+.total {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  justify-self: end;
+  align-self: center;
+
+  @include breakpoint($md) {
+    grid-column: unset;
+    grid-row: unset;
+    justify-self: unset;
+    align-self: unset;
+    text-align: right;
+  }
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+
+  transition: background 0.3s;
+
+  @include themify($invoice-table-themes) {
+    background-color: themed("footerBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    padding: rem(24px) rem(32px);
+  }
+}
+
+.foot_label {
+  font-size: rem(11px);
+  line-height: rem(18px);
+}
+
+.foot_total {
+  @include font-wsl($fw-bold, rem(20px), rem(32px));
+
+  @include breakpoint($md) {
+    font-size: rem(24px);
+  }
+}

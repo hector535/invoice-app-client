@@ -1,0 +1,80 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.invoices_page {
+  @include page-base-style;
+  padding-block: rem(32px) rem(105px);
+
+  display: grid;
+  gap: rem(32px);
+
+  @include breakpoint($xxl) {
+    gap: rem(65px);
+    padding-block: rem(72px) rem(32px);
+  }
+}
+
+.invoices_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  letter-spacing: -0.625px;
+  margin-bottom: rem(4px);
+  @include font-wsl($fw-bold, rem(20px), rem(22px));
+
+  transition: color 0.3s;
+
+  @include themify($base-themes) {
+    color: themed("headerTextColor");
+  }
+
+  @include breakpoint($md) {
+    font-size: rem(32px);
+    line-height: rem(36px);
+    letter-spacing: -1px;
+    margin-bottom: rem(8px);
+  }
+}
+
+.filter_text::before {
+  content: "Filter";
+  @include breakpoint($md) {
+    content: "Filter by status";
+  }
+}
+
+.button_text::before {
+  content: "New";
+  @include breakpoint($md) {
+    content: "New Invoice";
+  }
+}
+
+.actions_container {
+  display: flex;
+  gap: rem(18px);
+  align-items: center;
+
+  @include breakpoint($md) {
+    gap: rem(40px);
+  }
+}
+
+.invoices_container {
+  display: grid;
+  gap: rem(16px);
+}
+
+.icon_container {
+  width: 32px;
+  height: 32px;
+  border-radius: 100vmax;
+  background-color: $clr-white;
+
+  @include flex;
+}

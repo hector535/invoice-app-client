@@ -1,0 +1,239 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+$height-actions-container: 91px;
+
+.invoice_page {
+  @include page-base-style;
+  padding-block: rem(32px) rem(147px);
+
+  @include breakpoint($xxl) {
+    padding-block: rem(64px) rem(16px);
+  }
+}
+
+.back_btn {
+  margin-bottom: rem(32px);
+  gap: rem(24px);
+}
+
+.status_actions_container {
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+
+  transition: background 0.3s;
+
+  @include themify($invoice-page-themes) {
+    background-color: themed("containerBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    display: flex;
+    height: rem(88px);
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: rem(24px);
+    margin-bottom: rem(24px);
+  }
+}
+
+.status_container {
+  margin-bottom: rem(16px);
+
+  height: rem($height-actions-container);
+  padding-inline: rem(24px);
+
+  @include flex(space-between);
+
+  @include breakpoint($md) {
+    justify-content: unset;
+    gap: rem(16px);
+    padding-inline: 0;
+    margin-bottom: 0;
+    height: unset;
+  }
+}
+
+.actions_container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: rem($height-actions-container);
+  padding-inline: rem(24px);
+
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+
+  transition: background 0.3s;
+
+  @include themify($invoice-page-themes) {
+    background-color: themed("containerBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    width: unset;
+    height: unset;
+    position: unset;
+    padding-inline: 0;
+    background-color: unset;
+  }
+}
+
+.edit,
+.delete,
+.mark_paid {
+  width: 100%;
+}
+
+.edit,
+.delete,
+.mark_paid {
+  @include breakpoint($md) {
+    width: unset;
+  }
+}
+
+.highlight {
+  letter-spacing: -0.3125px;
+
+  transition: color 0.3s;
+
+  @include themify($invoice-page-themes) {
+    color: themed("highlight");
+  }
+
+  @include font-wsl($fw-bold, rem(15px), rem(20px));
+}
+
+.invoice_content {
+  padding: rem(24px);
+
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+
+  transition: color 0.3s, background 0.3s;
+
+  @include themify($invoice-page-themes) {
+    color: themed("color");
+    background-color: themed("containerBackgroundColor");
+  }
+
+  @include breakpoint($md) {
+    padding: rem(32px);
+  }
+}
+
+.header {
+  margin-bottom: rem(31px);
+
+  @include breakpoint($md) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(21px);
+  }
+}
+
+.id_description_container {
+  margin-bottom: rem(30px);
+  display: grid;
+  align-content: start;
+  gap: rem(4px);
+
+  @include breakpoint($md) {
+    margin-bottom: unset;
+    gap: rem(8px);
+  }
+}
+
+.id {
+  @include breakpoint($xxl) {
+    font-size: rem(16px);
+    line-height: rem(24px);
+    letter-spacing: -0.8px;
+  }
+}
+
+.bill_from,
+.bill_to {
+  font-size: rem(11px);
+  line-height: rem(18px);
+  letter-spacing: -0.229167px;
+}
+
+.bill_from {
+  @include breakpoint($md) {
+    text-align: right;
+  }
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: rem(36px);
+  margin-bottom: rem(40px);
+
+  @include breakpoint($md) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: unset;
+    margin-bottom: rem(48px);
+  }
+}
+
+.invoice_date_container,
+.payment_due_container,
+.sent_container,
+.bill_to_container {
+  display: grid;
+  gap: rem(12px);
+}
+
+.invoice_date_container {
+  margin-bottom: rem(32px);
+}
+
+.bill_to_container {
+  display: grid;
+  gap: rem(8px);
+}
+
+.sent_container {
+  grid-column: 1 / -1;
+  @include breakpoint($md) {
+    grid-column: unset;
+    align-self: start;
+  }
+}
+
+.modal_title {
+  margin-bottom: rem(8px);
+
+  transition: color 0.3s;
+
+  @include themify($base-themes) {
+    color: themed("headerTextColor");
+  }
+
+  @include breakpoint($md) {
+    margin-bottom: rem(14px);
+    font-size: rem(24px);
+    letter-spacing: -0.5px;
+  }
+
+  @include font-wsl($fw-bold, rem(20px), rem(32px));
+}
+
+.modal_body {
+  margin-bottom: rem(24px);
+  line-height: rem(22px);
+}
+
+.modal_actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: rem(8px);
+}

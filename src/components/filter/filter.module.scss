@@ -1,0 +1,51 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: rem(12px);
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  font-weight: $fw-bold;
+
+  transition: color 0.3s;
+
+  @include themify($filter-themes) {
+    color: themed("color");
+  }
+
+  @include breakpoint($md) {
+    gap: rem(16px);
+  }
+}
+
+.options {
+  position: absolute;
+  top: 120%;
+  transform: translateX(-40%);
+  outline: none;
+
+  width: rem(192px);
+  padding: rem(24px);
+  border-radius: 8px;
+
+  transition: background 0.3s;
+
+  @include themify($filter-themes) {
+    background-color: themed("backgroundColor");
+    box-shadow: 0px 10px 20px themed("shadowColor");
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: rem(12px);
+  text-transform: capitalize;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.nav {
+  @include breakpoint($xxl) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $nav-width-xxl;
+    height: 100vh;
+  }
+}

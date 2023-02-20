@@ -1,0 +1,91 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.button {
+  height: rem(48px);
+  border: none;
+  border-radius: 24px;
+  padding-inline: rem(24px);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+  font-weight: $fw-bold;
+  letter-spacing: -0.25px;
+
+  transition: color 0.3s, background 0.3s;
+}
+
+.block {
+  width: 100%;
+}
+
+.default {
+  @include themify($button-default-themes) {
+    color: themed("color");
+    background-color: themed("backgroundColor");
+
+    &:hover {
+      color: #7e88c3;
+      background-color: themed("hoverBackgroundColor");
+    }
+  }
+}
+
+.primary {
+  color: $clr-white;
+  background-color: $clr-primary;
+
+  &:hover {
+    background-color: $clr-primary-hover;
+  }
+}
+
+.secondary {
+  background-color: #373b53;
+  @include themify($button-secondary-themes) {
+    color: themed("color");
+
+    &:hover {
+      background-color: themed("hoverBackgroundColor");
+    }
+  }
+}
+
+.danger {
+  color: $clr-white;
+  background-color: #ec5757;
+
+  &:hover {
+    background-color: #ff9797;
+  }
+}
+
+.icon {
+  padding-inline: rem(6px) rem(14px);
+
+  @include flex(space-between);
+  gap: rem(8px);
+
+  @include breakpoint($md) {
+    padding-inline: rem(8px) rem(16px);
+    gap: rem(16px);
+  }
+}
+
+.link {
+  height: rem(15px);
+  background-color: transparent;
+  border-radius: 0;
+  padding-inline: 0;
+
+  @include themify($button-link-themes) {
+    color: themed("color");
+
+    &:hover {
+      color: themed("hoverColor");
+    }
+  }
+}

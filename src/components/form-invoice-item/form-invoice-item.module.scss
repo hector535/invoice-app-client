@@ -1,0 +1,66 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.form_invoice_item_container {
+  display: grid;
+  row-gap: rem(24px);
+  column-gap: rem(16px);
+  grid-template-columns: 1.1fr 1.5fr 2fr;
+
+  @include breakpoint($md) {
+    row-gap: unset;
+    grid-template-columns: 3fr 1fr 2fr 2fr;
+  }
+}
+
+.form_item_name {
+  grid-column: 1 / -1;
+  grid-row: 1;
+
+  @include breakpoint($md) {
+    grid-column: unset;
+    grid-row: unset;
+  }
+}
+
+.form_item_qty {
+  grid-row: 2;
+
+  @include breakpoint($md) {
+    grid-row: unset;
+  }
+}
+
+.form_item_price {
+  grid-row: 2;
+
+  @include breakpoint($md) {
+    grid-row: unset;
+  }
+}
+
+.form_item_total {
+  grid-row: 2;
+  align-self: flex-start;
+  display: grid;
+  gap: rem(27px);
+
+  @include breakpoint($md) {
+    grid-row: unset;
+  }
+}
+
+.form_total_icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: $fw-bold;
+  cursor: pointer;
+
+  &:hover svg * {
+    transition: fill 0.3s;
+    fill: #ec5757;
+  }
+}

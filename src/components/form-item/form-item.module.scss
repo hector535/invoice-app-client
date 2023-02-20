@@ -1,0 +1,17 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.form_item {
+  display: grid;
+  gap: rem(10px);
+}
+
+.label {
+  user-select: none;
+}
+
+.has_error {
+  color: #ec5757;
+}

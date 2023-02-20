@@ -1,0 +1,70 @@
+@use "../abstracts/variables" as *;
+
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/themes" as *;
+
+@font-face {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Spartan-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Spartan-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Spartan-Regular.ttf") format("truetype");
+}
+
+body {
+  letter-spacing: -0.25px;
+  font-family: "Spartan";
+  @include font-wsl($fw-medium, rem(12px), rem(15px));
+
+  transition: color 0.3s, background 0.3s;
+
+  @include themify-base($base-themes) {
+    background-color: themed("bodyBackgroundColor");
+    color: themed("bodyTextColor");
+  }
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+::-webkit-scrollbar {
+  width: rem(16px);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+  background-color: #dfe3fa;
+}
+
+.theme-light ::-webkit-scrollbar-thumb {
+  background-color: #0c0e16;
+}

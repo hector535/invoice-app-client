@@ -1,0 +1,84 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.select_container {
+  position: relative;
+
+  height: rem(48px);
+  padding-inline: rem(16px);
+
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+
+  border-radius: 4px;
+
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(16px);
+
+  transition: color 0.3s, background 0.3s, border-color 0.3s;
+
+  @include themify($select-themes) {
+    color: themed("color");
+    background-color: themed("backgroundColor");
+    border: 1px solid themed("borderColor");
+
+    &:hover {
+      border-color: themed("hoverBorderColor");
+    }
+  }
+}
+
+.select {
+  display: none;
+}
+
+.options {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  outline: none;
+  z-index: 10;
+
+  transition: background 0.3s;
+
+  @include themify($select-options-themes) {
+    background: themed("backgroundColor");
+    box-shadow: 0px 10px 20px themed("shadowColor");
+  }
+
+  border-radius: 8px;
+}
+
+.option {
+  padding: rem(16px);
+  cursor: pointer;
+
+  transition: color 0.3s;
+
+  @include themify($select-option-themes) {
+    color: themed("color");
+    border-bottom: 1px solid themed("borderColor");
+
+    &:hover {
+      color: themed("hoverColor");
+    }
+  }
+}
+
+.has_error {
+  @include themify($select-option-themes) {
+    border-color: #ec5757;
+  }
+}
+
+.error_text {
+  color: #ec5757;
+  font-weight: $fw-medium;
+  font-size: rem(10px);
+}

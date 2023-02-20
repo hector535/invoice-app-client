@@ -1,0 +1,144 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.new_invoice {
+  display: grid;
+  gap: rem(40px);
+
+  @include breakpoint($md) {
+    gap: rem(48px);
+  }
+}
+
+.title {
+  letter-spacing: -0.5px;
+  margin-bottom: rem(-16px);
+  @include font-wsl($fw-bold, rem(24px), rem(32px));
+
+  transition: color 0.3s;
+
+  @include themify($invoice-item-themes) {
+    color: themed("idColor");
+  }
+}
+
+.bill_from_container,
+.bill_to_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(24px);
+
+  @include breakpoint($md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.date_payment_description_container {
+  display: grid;
+  gap: rem(24px);
+
+  @include breakpoint($md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.description {
+  grid-column: 1 / -1;
+}
+
+.sub_title {
+  font-weight: $fw-bold;
+  color: #7c5dfa;
+  grid-column: 1 / -1;
+}
+
+.bill_street,
+.bill_country,
+.client,
+.email,
+.client_address,
+.client_country {
+  grid-column: 1 / -1;
+}
+
+.bill_country,
+.client_country {
+  @include breakpoint($md) {
+    grid-column: unset;
+  }
+}
+
+.form_actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(7px);
+
+  padding-inline: rem(24px);
+
+  background-color: #fff;
+  width: 100%;
+  height: rem(91px);
+
+  @include breakpoint($md) {
+    position: unset;
+    padding-inline: unset;
+    width: unset;
+    height: unset;
+    background-color: unset;
+
+    justify-content: flex-end;
+    gap: rem(8px);
+  }
+}
+
+.add_item_btn {
+  @include breakpoint($md) {
+    margin-top: rem(-30px);
+  }
+}
+
+.discard_cancel_btn,
+.draft_btn,
+.save_btn {
+  width: 100%;
+
+  @include breakpoint($md) {
+    width: unset;
+  }
+}
+
+.pull_right {
+  margin-right: auto;
+}
+
+.btn_padding {
+  padding-inline: rem(16px);
+}
+
+.item_list_container {
+  display: grid;
+  gap: rem(48px);
+
+  @include breakpoint($md) {
+    gap: rem(18px);
+  }
+}
+
+.group_title {
+  margin-bottom: rem(-24px);
+  letter-spacing: -0.375px;
+  color: #777f98;
+
+  @include breakpoint($md) {
+    margin-bottom: rem(-2px);
+  }
+
+  @include font-wsl($fw-bold, rem(18px), rem(32px));
+}

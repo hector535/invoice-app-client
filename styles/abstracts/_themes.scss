@@ -1,0 +1,228 @@
+$invoice-page-themes: (
+  light: (
+    backgroundColor:
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255) 83%,
+        rgba(0, 0, 0, 0.1) 100%
+      ),
+  ),
+  dark: (
+    backgroundColor: #141625,
+  ),
+);
+
+$invoice-item-themes: (
+  light: (
+    backgroundColor: #fff,
+    idColor: #0c0e16,
+    dateColor: #7e88c3,
+    clientColor: #858bb2,
+    amountColor: #0c0e16,
+  ),
+  dark: (
+    backgroundColor: #1e2139,
+    idColor: #fff,
+    dateColor: #dfe3fa,
+    clientColor: #fff,
+    amountColor: #fff,
+  ),
+);
+
+$invoice-themes: (
+  light: (
+    backgroundColor: #fff,
+    headingColor: #7e88c3,
+    color: #0c0e16,
+  ),
+  dark: (
+    backgroundColor: #1e2139,
+    headingColor: #7e88c3,
+    color: #0c0e16,
+  ),
+);
+
+$invoice-table-themes: (
+  light: (
+    bodyBackgroundColor: #f9fafe,
+    footerBackgroundColor: #373b53,
+    color: #7e88c3,
+    highlightColor: #0c0e16,
+  ),
+  dark: (
+    bodyBackgroundColor: #252945,
+    footerBackgroundColor: #0c0e16,
+    color: #dfe3fa,
+    highlightColor: #fff,
+  ),
+);
+
+$filter-themes: (
+  light: (
+    color: #0c0e16,
+    backgroundColor: #fff,
+    shadowColor: rgba(72, 84, 159, 0.25),
+  ),
+  dark: (
+    color: #fff,
+    backgroundColor: #252945,
+    shadowColor: rgba(0, 0, 0, 0.25),
+  ),
+);
+
+$checkbox-themes: (
+  light: (
+    backgroundColor: #dfe3fa,
+  ),
+  dark: (
+    backgroundColor: #1e2139,
+  ),
+);
+
+$input-themes: (
+  light: (
+    color: #0c0e16,
+    borderColor: #dfe3fa,
+    backgroundColor: #fff,
+    hoverBorderColor: #9277ff,
+  ),
+  dark: (
+    color: #fff,
+    borderColor: #252945,
+    backgroundColor: #1e2139,
+    hoverBorderColor: #7c5dfa,
+  ),
+);
+
+$calendar-themes: (
+  light: (
+    color: #0c0e16,
+    backgroundColor: #fff,
+    disableColor: #0c0e16,
+  ),
+  dark: (
+    color: #fff,
+    backgroundColor: #1e2139,
+    disableColor: #dfe3fa,
+  ),
+);
+
+$button-default-themes: (
+  light: (
+    color: #7e88c3,
+    backgroundColor: #f9fafe,
+    hoverBackgroundColor: #dfe3fa,
+  ),
+  dark: (
+    color: #dfe3fa,
+    backgroundColor: #252945,
+    hoverBackgroundColor: #fff,
+  ),
+);
+
+$button-secondary-themes: (
+  light: (
+    color: #888eb0,
+    hoverBackgroundColor: #0c0e16,
+  ),
+  dark: (
+    color: #dfe3fa,
+    hoverBackgroundColor: #1e2139,
+  ),
+);
+
+$button-link-themes: (
+  light: (
+    color: #0c0e16,
+    hoverColor: #7e88c3,
+  ),
+  dark: (
+    color: #ffffff,
+    hoverColor: #888eb0,
+  ),
+);
+
+$modal-themes: (
+  light: (
+    centeredModalBackgroundColor: #fff,
+    leftModalBackgroundColor: #fff,
+  ),
+  dark: (
+    centeredModalBackgroundColor: #1e2139,
+    leftModalBackgroundColor: #141625,
+  ),
+);
+
+$navigation-bar-themes: (
+  light: (
+    backgroundColor: #373b53,
+  ),
+  dark: (
+    backgroundColor: #1e2139,
+  ),
+);
+
+$select-themes: (
+  light: (
+    color: #0c0e16,
+    borderColor: #dfe3fa,
+    backgroundColor: #fff,
+    hoverBorderColor: #9277ff,
+  ),
+  dark: (
+    color: #fff,
+    borderColor: #252945,
+    backgroundColor: #1e2139,
+    hoverBorderColor: #7c5dfa,
+  ),
+);
+
+$select-options-themes: (
+  light: (
+    backgroundColor: #fff,
+    shadowColor: rgba(72, 84, 159, 0.25),
+  ),
+  dark: (
+    backgroundColor: #252945,
+    shadowColor: rgba(0, 0, 0, 0.25),
+  ),
+);
+
+$select-option-themes: (
+  light: (
+    color: #0c0e16,
+    borderColor: #dfe3fa,
+    hoverColor: #7c5dfa,
+  ),
+  dark: (
+    color: #dfe3fa,
+    borderColor: #1e2139,
+    hoverColor: #9277ff,
+  ),
+);
+
+$invoice-page-themes: (
+  light: (
+    containerBackgroundColor: #fff,
+    color: #7e88c3,
+    highlight: #0c0e16,
+  ),
+  dark: (
+    containerBackgroundColor: #1e2139,
+    color: #dfe3fa,
+    highlight: #fff,
+  ),
+);
+
+$base-themes: (
+  light: (
+    bodyBackgroundColor: #f8f8fb,
+    bodyTextColor: #888eb0,
+    headerTextColor: #0c0e16,
+  ),
+  dark: (
+    bodyBackgroundColor: #141625,
+    bodyTextColor: #dfe3fa,
+    headerTextColor: #fff,
+  ),
+);

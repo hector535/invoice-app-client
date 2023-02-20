@@ -1,0 +1,51 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.badge {
+  width: rem(104px);
+  height: rem(40px);
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(8px);
+
+  font-weight: $fw-bold;
+  text-transform: capitalize;
+}
+
+.circle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100vmax;
+}
+
+.paid {
+  background-color: rgba(#33d69f, 0.06);
+  color: #33d69f;
+
+  .circle {
+    background-color: #33d69f;
+  }
+}
+
+.pending {
+  background-color: rgba(#ff8f00, 0.06);
+  color: #ff8f00;
+
+  .circle {
+    background-color: #ff8f00;
+  }
+}
+
+.draft {
+  background-color: rgba(#373b53, 0.06);
+  color: #373b53;
+
+  .circle {
+    background-color: #373b53;
+  }
+}

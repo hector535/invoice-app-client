@@ -1,0 +1,23 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.new_invoice_page {
+  padding-block: rem(32px) rem(179px);
+
+  transition: background 0.3s;
+
+  @include themify($invoice-page-themes) {
+    background: themed("backgroundColor");
+  }
+}
+
+.back_btn {
+  margin-bottom: rem(24px);
+  gap: rem(24px);
+}
+
+.content {
+  @include page-base-style;
+}

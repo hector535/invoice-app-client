@@ -1,0 +1,50 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.datepicker_container {
+  position: relative;
+  cursor: pointer;
+
+  height: rem(48px);
+  border-radius: 4px;
+  padding-inline: rem(16px);
+
+  font-weight: $fw-bold;
+  font-size: rem(13px);
+
+  transition: color 0.3s, background 0.3s, border-color 0.3s;
+
+  @include flex(space-between);
+
+  @include themify($input-themes) {
+    color: themed("color");
+    border: 1px solid themed("borderColor");
+    background-color: themed("backgroundColor");
+    &:hover {
+      border-color: themed("hoverBorderColor");
+    }
+  }
+}
+
+.disabled {
+  border-color: #dfe3fa;
+  pointer-events: none;
+}
+
+.input {
+  display: none;
+}
+
+.has_error {
+  @include themify($select-option-themes) {
+    border-color: #ec5757;
+  }
+}
+
+.error_text {
+  color: #ec5757;
+  font-weight: $fw-medium;
+  font-size: rem(10px);
+}

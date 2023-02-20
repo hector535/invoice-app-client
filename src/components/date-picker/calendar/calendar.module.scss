@@ -1,0 +1,63 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.calendar {
+  position: absolute;
+  top: 150%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  user-select: none;
+
+  padding: rem(24px) rem(18px);
+
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  border-radius: 8px;
+
+  display: grid;
+  gap: rem(32px);
+
+  transition: color 0.3s, background 0.3s;
+
+  @include font-wsl($fw-bold, rem(12px), rem(15px));
+
+  @include themify($calendar-themes) {
+    color: themed("color");
+    background-color: themed("backgroundColor");
+  }
+}
+
+.calendar_header {
+  @include flex(space-between);
+}
+
+.calendar_body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  align-items: center;
+  column-gap: rem(4px);
+  row-gap: rem(16px);
+}
+
+.calendar_arrow,
+.calendar_day {
+  cursor: pointer;
+}
+
+.calendar_day {
+  transition: color 0.3s;
+  &:hover {
+    color: #7c5dfa;
+  }
+}
+
+.calendar_day_blocked {
+  transition: color 0.3s;
+  @include themify($calendar-themes) {
+    color: rgba(themed("disableColor"), 0.08);
+  }
+}

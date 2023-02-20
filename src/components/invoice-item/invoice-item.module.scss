@@ -1,0 +1,112 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.invoice_item {
+  padding: rem(23px) rem(24px);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: border-color 0.3s;
+
+  @include breakpoint($md) {
+    padding: rem(15px) rem(24px);
+    grid-template-columns: 0.7fr repeat(2, 1fr) 0.75fr 1.1fr 0.25fr;
+    align-items: center;
+  }
+
+  @include themify($invoice-item-themes) {
+    background-color: themed("backgroundColor");
+  }
+
+  &:hover {
+    border-color: #7c5dfa;
+  }
+}
+
+.id {
+  margin-bottom: rem(24px);
+
+  @include breakpoint($md) {
+    margin-bottom: unset;
+  }
+}
+
+.hashtag {
+  color: #7e88c3;
+}
+
+.date {
+  margin-bottom: rem(8px);
+
+  @include breakpoint($md) {
+    margin-bottom: unset;
+  }
+}
+
+.client {
+  text-align: right;
+  grid-row: 1;
+  grid-column: 2;
+
+  transition: color 0.3s;
+
+  @include breakpoint($md) {
+    grid-row: unset;
+    grid-column: unset;
+    text-align: unset;
+  }
+
+  @include themify($invoice-item-themes) {
+    color: themed("clientColor");
+  }
+}
+
+.amount {
+  letter-spacing: -0.8px;
+  grid-column: 1;
+  grid-row: 3;
+
+  transition: color 0.3s;
+
+  @include font-wsl($fw-bold, rem(16px), rem(24px));
+
+  @include breakpoint($md) {
+    text-align: right;
+    grid-row: unset;
+    grid-column: unset;
+  }
+
+  @include themify($invoice-item-themes) {
+    color: themed("amountColor");
+  }
+}
+
+.badge {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  justify-self: end;
+
+  @include breakpoint($md) {
+    grid-row: unset;
+    grid-column: unset;
+    justify-self: right;
+  }
+}
+
+.icon {
+  display: none;
+
+  @include breakpoint($md) {
+    display: block;
+    justify-self: right;
+  }
+}

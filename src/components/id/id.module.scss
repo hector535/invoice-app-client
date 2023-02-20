@@ -1,0 +1,18 @@
+@use "/styles/abstracts/variables" as *;
+@use "/styles/abstracts/themes" as *;
+@use "/styles/abstracts/mixins" as *;
+@use "/styles/abstracts/functions" as *;
+
+.id {
+  font-weight: $fw-bold;
+
+  transition: color 0.3s;
+
+  @include themify($invoice-item-themes) {
+    color: themed("idColor");
+  }
+}
+
+.hash {
+  color: $clr-primary;
+}
